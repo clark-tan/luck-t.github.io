@@ -1,0 +1,669 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js,Responsive layout," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="响应布局(responsive layout)是一种有别于传统的固定布局(fixed layout)和流体布局(fluid layout)的网页布局，是一种利用CSS3 media queries来重构依赖于浏览器或者其他设备(手机、平板电脑、电视等)窗口大小的网页的行为，是为了响应不同用户使用不同屏幕尺寸的设备、不同平台、不同方向进行浏览网页时，页面可以自动适应的需求。
+前言
+这里将使用jQue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Js Responsive Layout">
+<meta property="og:url" content="http://yoursite.com/2016/03/20/JS Responsive layout/index.html">
+<meta property="og:site_name" content="Dark Power">
+<meta property="og:description" content="响应布局(responsive layout)是一种有别于传统的固定布局(fixed layout)和流体布局(fluid layout)的网页布局，是一种利用CSS3 media queries来重构依赖于浏览器或者其他设备(手机、平板电脑、电视等)窗口大小的网页的行为，是为了响应不同用户使用不同屏幕尺寸的设备、不同平台、不同方向进行浏览网页时，页面可以自动适应的需求。
+前言
+这里将使用jQue">
+<meta property="og:updated_time" content="2017-08-23T03:12:40.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Js Responsive Layout">
+<meta name="twitter:description" content="响应布局(responsive layout)是一种有别于传统的固定布局(fixed layout)和流体布局(fluid layout)的网页布局，是一种利用CSS3 media queries来重构依赖于浏览器或者其他设备(手机、平板电脑、电视等)窗口大小的网页的行为，是为了响应不同用户使用不同屏幕尺寸的设备、不同平台、不同方向进行浏览网页时，页面可以自动适应的需求。
+前言
+这里将使用jQue">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/03/20/JS Responsive layout/"/>
+
+  <title> Js Responsive Layout | Dark Power </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Dark Power</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">just for future</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Js Responsive Layout
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-03-20T20:11:35+08:00" content="3月 20 2016">
+              3月 20 2016
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Js/" itemprop="url" rel="index">
+                    <span itemprop="name">Js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>响应布局(responsive layout)是一种有别于传统的固定布局(fixed layout)和流体布局(fluid layout)的网页布局，是一种利用CSS3 media queries来重构依赖于浏览器或者其他设备(手机、平板电脑、电视等)窗口大小的网页的行为，是为了响应不同用户使用不同屏幕尺寸的设备、不同平台、不同方向进行浏览网页时，页面可以自动适应的需求。</p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>这里将使用jQuery的方法来实现。（使用时请先引用jQuery包）</li>
+</ul>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">$(function() &#123;</div><div class="line">    (function()&#123;</div><div class="line">        var $html = $(&apos;html&apos;);</div><div class="line">        var $window = $(&apos;window&apos;);</div><div class="line">        var $body = $(&apos;body&apos;);</div><div class="line">        var psdsize =960;//这里表示我设计图的宽度</div><div class="line">        //计算字体大小</div><div class="line">        var htmlfont = $body.width()/psdsize*100 + &apos;px&apos;;</div><div class="line">        //设置字体大小</div><div class="line">        $html.css(&apos;font-size&apos;, htmlfont);</div><div class="line">        //针对一些手机浏览器的默认样式</div><div class="line">        $body.css(&apos;opacity&apos;, 1);</div><div class="line">        //屏幕尺寸修改时，改变其大小</div><div class="line">        $(window).resize(function(event) &#123;</div><div class="line">            htmlfont = $body.width()/psdsize*100+&apos;px&apos;;</div><div class="line">            $html.css(&apos;font-size&apos;, &apos;htmlfont&apos;);</div><div class="line">        &#125;);</div><div class="line">    &#125;)();</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="插件的封装"><a href="#插件的封装" class="headerlink" title="插件的封装"></a>插件的封装</h4><p>在这里，其实可以把这段代码封装成一个插件，每次使用响应式布局的时候来调用它就可以了，不需要每次都复制这一段代码。下面是修改的插件的代码，以及使用方法。</p>
+<ul>
+<li>插件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"> $.extend(&#123;</div><div class="line">    F_SIZE:<span class="keyword">function</span>(size)&#123;</div><div class="line">        //使用传参的方式，以便灵活调用</div><div class="line">        var <span class="variable">$html</span> = $(<span class="string">'html'</span>);</div><div class="line">        var <span class="variable">$window</span> = $(<span class="string">'window'</span>);</div><div class="line">        var <span class="variable">$body</span> = $(<span class="string">'body'</span>);</div><div class="line">        //这里表示我设计图的宽度</div><div class="line">        var psdsize = size;</div><div class="line">        //计算字体大小</div><div class="line">        var htmlfont = <span class="variable">$body</span>.width()/psdsize*100 + <span class="string">'px'</span>;</div><div class="line">        //设置字体大小</div><div class="line">        <span class="variable">$html</span>.css(<span class="string">'font-size'</span>, htmlfont);</div><div class="line">        //针对一些手机浏览器的默认样式</div><div class="line">        <span class="variable">$body</span>.css(<span class="string">'opacity'</span>, 1);</div><div class="line">        //屏幕尺寸修改时，改变其大小</div><div class="line">        $(window).resize(<span class="keyword">function</span>(event) &#123;</div><div class="line">            htmlfont = <span class="variable">$body</span>.width()/psdsize*100 + <span class="string">'px'</span>;</div><div class="line">            <span class="variable">$html</span>.css(<span class="string">'font-size'</span>, htmlfont);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>插件的调用</p>
+<p>  先在html的头文件中调用此插件</p>
+<p>  然后再js里面调用，调用的方法：</p>
+<p>  <code>$.F_SIZE(960);  #参数为你设计图的宽度</code></p>
+</li>
+<li><p>页面中的计算及使用</p>
+<p>  调用函数后，页面距离/字体大小的计算只需测量设计图的距离/字体的大小，再除以一百即可。（单位为“rem”）<br>  计算公式：设计图字体大小/100+“rem”（此处使用字体大小来举例子）</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">假如我设计图的字体为50px，计算方式为：50/100=0.5rem</div><div class="line">也就是说我此处的font-size:.5rem</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这种方式大大的提高工作效率，如果你有更好的方法，欢迎和我一起讨论！！！</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag">#js</a>
+          
+            <a href="/tags/Responsive-layout/" rel="tag">#Responsive layout</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/20/git/" rel="next" title="git">
+                <i class="fa fa-chevron-left"></i> git
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/02/Ajax/" rel="prev" title="Ajax">
+                Ajax <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="luck-T" />
+          <p class="site-author-name" itemprop="name">luck-T</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 人生感悟 时间计划</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Kategorien</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/luck-T/luck-t.github.io" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件的封装"><span class="nav-number">3.</span> <span class="nav-text">插件的封装</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">luck-T</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
